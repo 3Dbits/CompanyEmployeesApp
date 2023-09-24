@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Entities.Models;
+using Shared;
 using Shared.DataTransferObjects;
 
 namespace CompanyEmployees
@@ -8,10 +9,14 @@ namespace CompanyEmployees
     {
         public MappingProfile()
         {
-            CreateMap<Company, CompanyDto>().ForCtorParam("FullAddress",
+            CreateMap<Company, CompanyDto>().ForMember(c => c.FullAddress,
                     opt => opt.MapFrom(x => string.Join(' ', x.Address, x.Country)));
 
             CreateMap<Employee, EmployeeDto>();
+
+            CreateMap<CompanyForCreationDto, Company>();
+
+            CreateMap<EmployeeForCreationDto, Employee>();
         }
     }
 }
