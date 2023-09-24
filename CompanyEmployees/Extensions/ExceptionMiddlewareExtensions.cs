@@ -33,7 +33,6 @@ namespace CompanyEmployees.Extensions
                         {
                             StatusCode = context.Response.StatusCode,
                             Message = contextFeature.Error.Message,
-
                         }.ToString());
                     }
                 });
